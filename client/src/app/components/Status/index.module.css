@@ -1,0 +1,17 @@
+.status {
+  --yellow: #ffb703;
+  --green: #8ac926;
+
+  display: flex;
+  width: .75rem;
+  height: .75rem;
+  border-radius: 50%;
+}
+
+.pending {
+  background-color: var(--yellow);
+}
+
+.completed {
+  background-color: var(--green);
+}

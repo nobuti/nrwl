@@ -1,0 +1,16 @@
+.ticket {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 2px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  gap: 1rem;
+  background-color: #fff;
+  font-weight: 600;
+}
+
+.avatar {
+  margin-left: auto;
+}
+

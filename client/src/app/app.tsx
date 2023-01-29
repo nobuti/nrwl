@@ -1,41 +1,44 @@
-import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import {
+  useQuery,
+  QueryClientProvider,
+  QueryClient,
+} from '@tanstack/react-query';
 import { Ticket, User } from '@acme/shared-models';
 
-import styles from './app.module.css';
-import Tickets from './tickets/tickets';
+import Layout from './components/Layout';
+import Tickets from './views/tickets';
+
+import getAllTickets from '../context/tickets/compose/getAll';
+import getAllUsers from '../context/users/compose/getAll';
+
+const queryClient = new QueryClient();
 
 const App = () => {
-  const [tickets, setTickets] = useState([] as Ticket[]);
-  const [users, setUsers] = useState([] as User[]);
+  const { data: tickets } = useQuery<Ticket[]>({
+    queryKey: ['tickets'],
+    queryFn: getAllTickets,
+    initialData: [],
+  });
 
-  // Very basic way to synchronize state with server.
-  // Feel free to use any state/fetch library you want (e.g. react-query, xstate, redux, etc.).
-  useEffect(() => {
-    async function fetchTickets() {
-      const data = await fetch('/api/tickets').then();
-      setTickets(await data.json());
-    }
-
-    async function fetchUsers() {
-      const data = await fetch('/api/users').then();
-      setUsers(await data.json());
-    }
-
-    fetchTickets();
-    fetchUsers();
-  }, []);
+  const { data: users } = useQuery<User[]>({
+    queryKey: ['users'],
+    queryFn: getAllUsers,
+    initialData: [],
+  });
 
   return (
-    <div className={styles['app']}>
-      <h1>Ticketing App</h1>
+    <Layout>
       <Routes>
-        <Route path="/" element={<Tickets tickets={tickets} />} />
-        {/* Hint: Try `npx nx g component TicketDetails --project=client --no-export` to generate this component  */}
+        <Route path="/" element={<Tickets tickets={tickets} users={users} />} />
         <Route path="/:id" element={<h2>Details Not Implemented</h2>} />
       </Routes>
-    </div>
+    </Layout>
   );
 };
 
-export default App;
+export default () => (
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
+);
