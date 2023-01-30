@@ -53,3 +53,17 @@ export async function fromPrimitives({
     description: ticketDescription,
   } as Ticket;
 }
+
+export async function fromFormPayload({
+  description,
+}: Partial<Ticket>): Promise<Pick<Ticket, 'description'>> {
+  const results = await Promise.allSettled([
+    makeTicketDescription(description),
+  ]);
+
+  const [ticketDescription] = handleResults(results);
+
+  return {
+    description: ticketDescription,
+  } as Pick<Ticket, 'description'>;
+}

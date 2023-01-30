@@ -12,10 +12,7 @@ describe('createTicket', () => {
 
   it('should create a ticket', async () => {
     const ticket = {
-      id: 1,
       description: 'description',
-      assigneeId: null,
-      completed: false,
     };
 
     fetchMock.mockResponseOnce(JSON.stringify(ticket), {
@@ -34,10 +31,7 @@ describe('createTicket', () => {
       headers: { 'content-type': 'application/json' },
     });
     const promise = createTicket(create)({
-      id: 1,
       description: 'description',
-      completed: false,
-      assigneeId: null,
     });
     await expect(promise).rejects.toThrowError();
   });

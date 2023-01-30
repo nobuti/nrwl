@@ -2,7 +2,7 @@ import { Ticket } from '@acme/shared-models';
 
 import { BaseError } from '../../../utils/BaseError';
 import { request } from '../../../utils/request';
-import { fromPrimitives } from '../domain/Ticket';
+import { fromPrimitives, fromFormPayload } from '../domain/Ticket';
 import { TicketsRepository } from '../domain/TicketRepository';
 
 export class ApiTicketError extends BaseError<
@@ -48,14 +48,13 @@ export const getTickets: TicketsRepository['getAll'] = async () => {
   }
 };
 
-export const createTicket: TicketsRepository['create'] = async (
-  ticket: Ticket
-) => {
+export const createTicket: TicketsRepository['create'] = async (ticket) => {
   try {
-    const payload = await fromPrimitives(ticket);
+    const payload = await fromFormPayload(ticket);
     const response = await request<Ticket>(`/api/tickets`, {
       method: 'POST',
       body: JSON.stringify(payload),
+      headers: { 'content-type': 'application/json' },
     });
 
     return response;

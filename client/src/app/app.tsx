@@ -13,6 +13,7 @@ import TicketDetails from './views/ticket';
 import getAllTickets from '../context/tickets/compose/getAll';
 import getAllUsers from '../context/users/compose/getAll';
 import NotFound from './views/notFound';
+import NewTicket from './views/newTicket';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,6 +42,7 @@ const App = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<Tickets tickets={tickets} users={users} />} />
+        <Route path="/new" element={<NewTicket />} />
         <Route path="/:id" element={<TicketDetails />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" replace />} />

@@ -1,9 +1,9 @@
-import { HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import clsx from 'clsx';
 
 import styles from './index.module.css';
 
-type ButtonProps = HTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {
   return (
