@@ -1,4 +1,3 @@
-import { Ticket } from '@acme/shared-models';
 import clsx from 'clsx';
 import { ReactNode, useState } from 'react';
 

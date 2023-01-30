@@ -1,7 +1,6 @@
-import React, { useCallback, useMemo, FormEventHandler } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { Ticket, User } from '@acme/shared-models';
+import { FormEventHandler } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 import newTicket from '../../../context/tickets/compose/create';
 import Button from '../../components/Button';

@@ -36,8 +36,6 @@ const App = () => {
     initialData: [],
   });
 
-  console.log('tickets', tickets, users);
-
   return (
     <Layout>
       <Routes>
