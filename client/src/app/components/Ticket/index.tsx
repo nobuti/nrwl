@@ -1,4 +1,5 @@
 import { Ticket, User } from '@acme/shared-models';
+import { Link } from 'react-router-dom';
 
 import Avatar from '../Avatar';
 import Status from '../Status';
@@ -14,14 +15,16 @@ const Ticket = ({ ticket, user }: TicketProps) => {
   const isAssigned = !!user;
 
   return (
-    <li className={styles['ticket']}>
-      <Status ticket={ticket} />
-      <div className={styles['description']}>{ticket.description}</div>
-      {isAssigned && (
-        <div className={styles['avatar']}>
-          <Avatar user={user} />
-        </div>
-      )}
+    <li>
+      <Link className={styles['ticket']} to={`/${ticket.id}`}>
+        <Status ticket={ticket} />
+        <div className={styles['description']}>{ticket.description}</div>
+        {isAssigned && (
+          <div className={styles['avatar']}>
+            <Avatar user={user} />
+          </div>
+        )}
+      </Link>
     </li>
   );
 };

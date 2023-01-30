@@ -18,7 +18,11 @@ export function Tickets({ users, tickets }: TicketsProps) {
             <Task
               key={t.id}
               ticket={t}
-              user={t.assigneeId ? users[t.assigneeId] : undefined}
+              user={
+                t.assigneeId
+                  ? users.find((u) => u.id === t.assigneeId)
+                  : undefined
+              }
             />
           ))}
         </ul>

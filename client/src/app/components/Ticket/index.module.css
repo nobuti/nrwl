@@ -2,12 +2,14 @@
   display: flex;
   align-items: center;
   padding: 2rem;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #e0e0e0;
   width: 100%;
   gap: 1rem;
   background-color: #fff;
   font-weight: 600;
+  text-decoration: none;
+  color: #444;
 }
 
 .avatar {
