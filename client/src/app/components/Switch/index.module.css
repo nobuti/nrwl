@@ -15,6 +15,11 @@
   transition: background-color ease 0.3s;
 }
 
+.switch[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .switch:before {
   content: "";
   display: block;
@@ -28,8 +33,6 @@
   border-radius: 50%;
   text-transform: uppercase;
   font-weight: bold;
-  text-indent: -22px;
-  word-spacing: 37px;
   color: #fff;
   text-shadow: -1px -1px rgba(0,0,0,0.15);
   white-space: nowrap;
@@ -44,3 +47,15 @@
 .switch:checked:before {
   left: 32px;
 }
+
+.switch.loading:before {
+  width: 26px;
+  height: 26px;
+  left: 3px;
+  top: 3px;
+}
+
+.switch.loading:checked:before {
+  left: 33px;
+}
+

@@ -4,8 +4,10 @@
 
 .container dl {
   display: flex;
+  align-items: center;
   flex-flow: row;
   flex-wrap: wrap;
+  max-width: 24rem;
   width: 100%;
 }
 
@@ -18,4 +20,5 @@
   flex: 0 0 50%;
   text-overflow: ellipsis;
   overflow: hidden;
+  padding: .5rem 0;
 }
