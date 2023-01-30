@@ -1,0 +1,29 @@
+.container h2 {
+  margin-bottom: 2rem;
+}
+
+.container fieldset {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.container fieldset + fieldset {
+  margin-top: 2rem;
+}
+
+.container form {
+  max-width: 24rem;
+  width: 100%;
+}
+
+.container label,
+.container input,
+.container select {
+  display: block;
+  width: 100%;
+}
+
+.actions {
+  padding: 2rem 0;
+}
