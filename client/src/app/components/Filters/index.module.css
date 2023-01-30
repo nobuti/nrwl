@@ -1,0 +1,27 @@
+.container {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: .5rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+}
+
+.container h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.filters,
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.filters {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
