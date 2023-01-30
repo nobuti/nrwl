@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, FormEventHandler } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Ticket, User } from '@acme/shared-models';
 
 import newTicket from '../../../context/tickets/compose/create';
@@ -13,11 +13,12 @@ interface RequestData {
 
 const NewTicket = () => {
   const queryClient = useQueryClient();
-
+  const navigate = useNavigate();
   const addTicketMutation = useMutation({
     mutationFn: newTicket,
-    onSettled: () => {
+    onSuccess: () => {
       queryClient.invalidateQueries(['tickets']);
+      navigate('/');
     },
   });
 
