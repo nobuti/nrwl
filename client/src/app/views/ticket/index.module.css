@@ -1,0 +1,21 @@
+.container h2 {
+  margin-bottom: 2rem;
+}
+
+.container dl {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container dt {
+  font-weight: bold;
+}
+
+.container dt,
+.container dd {
+  flex: 0 0 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
