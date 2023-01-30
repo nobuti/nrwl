@@ -15,7 +15,7 @@ const Ticket = ({ ticket, user }: TicketProps) => {
   const isAssigned = !!user;
 
   return (
-    <li>
+    <li data-testid="ticket">
       <Link className={styles['ticket']} to={`/${ticket.id}`}>
         <Status ticket={ticket} />
         <div className={styles['description']}>{ticket.description}</div>

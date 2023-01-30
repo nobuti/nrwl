@@ -35,7 +35,7 @@ const Filters = ({ tickets, toggleHandler }: FiltersProps) => {
   }, [tickets]);
 
   return (
-    <div className={styles['container']}>
+    <div className={styles['container']} data-testid="filters">
       <h2>Filter by</h2>
       <ul className={styles['filters']}>
         {(['completed', 'unassigned'] as FilterKey[]).map((filter) => (

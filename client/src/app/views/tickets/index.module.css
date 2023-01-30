@@ -1,8 +1,15 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: 1fr 1fr;
   padding: 0;
   margin: 0;
   list-style-type: none;
   gap: 1rem;
 }
+
+@media screen and (max-width: 640px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+
